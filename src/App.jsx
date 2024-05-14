@@ -9,6 +9,8 @@ import getImages from "./api";
 // Add loader and error message
 // Add modal
 // Check requirements
+// Check my code
+// Style
 
 export default function App() {
   const [images, setImages] = useState([]);
