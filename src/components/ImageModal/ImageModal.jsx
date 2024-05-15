@@ -1,4 +1,6 @@
-import Modal from "react-modal";
+import ReactModal from "react-modal";
+
+import css from "./ImageModal.module.css";
 
 const customStyles = {
   content: {
@@ -8,14 +10,29 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
+    backgroundColor: "pink",
+  },
+  overlay: {
+    backgroundColor: "black",
   },
 };
 
-export default function ImageModal({ onCloseModal }) {
+ReactModal.setAppElement("#root");
+
+ReactModal.defaultStyles.overlay.backgroundColor = "black";
+
+export default function ImageModal({ onCloseModal, modalIsOpen, modalData }) {
   return (
-    <Modal style={customStyles}>
+    <ReactModal
+      style={customStyles}
+      isOpen={modalIsOpen}
+      onRequestClose={onCloseModal}
+      overlayClassName={css.Overlay}
+      shouldCloseOnOverlayClick={true}
+      shouldCloseOnEsc={true}
+    >
       <button onClick={onCloseModal}>Close</button>
-      <img src="" alt="" />
-    </Modal>
+      <img src={modalData.src} alt={modalData.alt} width="500" height="500" />
+    </ReactModal>
   );
 }

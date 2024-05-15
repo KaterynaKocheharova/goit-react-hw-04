@@ -21,9 +21,11 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalData, setModalData] = useState({});
 
-  function openModal() {
+  function openModal(modalData) {
     setIsOpen(true);
+    setModalData(modalData);
   }
 
   function closeModal() {
@@ -69,12 +71,22 @@ export default function App() {
     <>
       <SearchBar onSubmit={handleSubmit} />
       {images.length > 0 && (
-        <ImageGallery images={images} onOpenModal={openModal} />
+        <ImageGallery
+          images={images}
+          onOpenModal={openModal}
+          setModalData={setModalData}
+        />
       )}
       {isLoading && <Loader />}
       {error && <ErrorMessage />}
       {showLoadMoreBtn && <LoadMoreBtn onClick={handleLoadMoreBtnClick} />}
-      {modalIsOpen && <ImageModal onCloseModal={closeModal} />}
+      {modalIsOpen && (
+        <ImageModal
+          onCloseModal={closeModal}
+          modalIsOpen={modalIsOpen}
+          modalData={modalData}
+        />
+      )}
     </>
   );
 }
