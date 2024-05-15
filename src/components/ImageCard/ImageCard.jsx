@@ -2,15 +2,16 @@ export default function ImageCard({
   imageData: {
     likes,
     description,
-    urls: { small, regular, thumb },
+    urls: { small },
   },
+  onOpenModal,
 }) {
   return (
     <div>
       <div>
         <p>Likes: {likes}</p>
       </div>
-      <img src={small} alt={description} />
+      <img src={small} alt={description} onClick={onOpenModal} />
     </div>
   );
 }
