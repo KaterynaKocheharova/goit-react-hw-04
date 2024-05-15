@@ -8,11 +8,6 @@ import LoadMoreBtn from "./components/LoadMoreBtn/LoadMore";
 import ImageModal from "./components/ImageModal/ImageModal";
 import getImages from "./api";
 
-// Add modal
-// Check requirements
-// Check my code
-// Style
-
 export default function App() {
   const [images, setImages] = useState([]);
   const [currentQuery, setCurrentQuery] = useState("");
