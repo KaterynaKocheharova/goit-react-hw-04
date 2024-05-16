@@ -21,10 +21,12 @@ export default function App() {
   function openModal(modalData) {
     setIsOpen(true);
     setModalData(modalData);
+    document.body.classList.add("no-scroll");
   }
 
   function closeModal() {
     setIsOpen(false);
+    document.body.classList.remove("no-scroll");
   }
 
   useEffect(() => {
@@ -63,7 +65,7 @@ export default function App() {
   }
 
   return (
-    <>
+    <div>
       <SearchBar onSubmit={handleSubmit} />
       <main>
         <Container notHeader>
@@ -86,6 +88,6 @@ export default function App() {
           )}
         </Container>
       </main>
-    </>
+    </div>
   );
 }
