@@ -12,7 +12,7 @@ export default function App() {
   const [images, setImages] = useState([]);
   const [currentQuery, setCurrentQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [showLoadMoreBtn, setShowLoadMoreBtn] = useState(false);
+  const [totalPages, setTotalPages] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -37,12 +37,9 @@ export default function App() {
           setError(false);
           const imageData = await getImages(currentQuery, currentPage);
           if (currentPage === 1) {
-            setImages(imageData.results);
-          } else {
-            setImages((prevImages) => [...prevImages, ...imageData.results]);
+            setTotalPages(imageData.total_pages);
           }
-          const maxPageNum = imageData["total_pages"];
-          setShowLoadMoreBtn(currentPage < maxPageNum);
+          setImages((prevImages) => [...prevImages, ...imageData.results]);
         }
       } catch (error) {
         console.error(error);
@@ -79,7 +76,9 @@ export default function App() {
           )}
           {isLoading && <Loader />}
           {error && <ErrorMessage />}
-          {showLoadMoreBtn && <LoadMoreBtn onClick={handleLoadMoreBtnClick} />}
+          {images.length > 0 && !isLoading && currentPage !== totalPages && (
+            <LoadMoreBtn onClick={handleLoadMoreBtnClick} />
+          )}
           {modalIsOpen && (
             <ImageModal
               onCloseModal={closeModal}
