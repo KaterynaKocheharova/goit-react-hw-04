@@ -21,12 +21,10 @@ export default function App() {
   function openModal(modalData) {
     setIsOpen(true);
     setModalData(modalData);
-    document.body.classList.add("no-scroll");
   }
 
   function closeModal() {
     setIsOpen(false);
-    document.body.classList.remove("no-scroll");
   }
 
   useEffect(() => {

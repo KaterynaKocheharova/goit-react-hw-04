@@ -1,16 +1,6 @@
 import ReactModal from "react-modal";
-
+import css from "./ImageModal.module.css";
 const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    padding: "0",
-    overflow: "hidden",
-  },
   overlay: {
     position: "fixed",
     top: 0,
@@ -33,8 +23,10 @@ export default function ImageModal({ onCloseModal, modalIsOpen, modalData }) {
       onRequestClose={onCloseModal}
       shouldCloseOnOverlayClick={true}
       shouldCloseOnEsc={true}
+      className={css.content}
+      bodyOpenClassName={"ReactModal__Body--open"}
     >
-      <img src={modalData.src} alt={modalData.alt} />
+      <img className={css.image} src={modalData.src} alt={modalData.alt} />
     </ReactModal>
   );
 }
