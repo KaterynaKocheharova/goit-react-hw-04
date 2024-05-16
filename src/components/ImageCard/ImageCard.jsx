@@ -1,3 +1,5 @@
+import css from "./ImageCard.module.css";
+
 export default function ImageCard({
   imageData: {
     likes,
@@ -11,11 +13,18 @@ export default function ImageCard({
   }
 
   return (
-    <div>
+    <div className={css.card}>
       <div>
-        <p>Likes: {likes}</p>
+        <p className={css.likes}>Likes: {likes}</p>
       </div>
-      <img src={small} alt={description} onClick={handleModalClick} />
+      <div className={css["image-container"]}>
+        <img
+          className={css.image}
+          src={small}
+          alt={description}
+          onClick={handleModalClick}
+        />
+      </div>
     </div>
   );
 }

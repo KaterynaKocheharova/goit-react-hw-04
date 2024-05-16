@@ -1,8 +1,22 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --first-color: #e2c2b3;
+  --second-color: #403234;
+
+  --big-gap: 5rem;
+  --medium-gap: 3rem;
+  --small-gap: 1.5rem;
+
+  --card-border-radius: 20px;
+  --input-and-btn-border-radius: 10px;
+}
+
+h1 {
+  font-size: calc(1.5rem + 3vw);
 }
 
 body {
+  background-color: var(--first-color);
   font-family: sans-serif;
   line-height: 1.5;
 }
@@ -21,6 +35,7 @@ ul,
 ol {
   margin: 0;
   padding: 0;
+  list-style-type: none;
 }
 
 img {

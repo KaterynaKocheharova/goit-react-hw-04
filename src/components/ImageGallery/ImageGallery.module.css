@@ -1,0 +1,8 @@
+.list {
+  padding-top: 3rem;
+  display: flex;
+  justify-content: space-around;
+  gap: 3rem;
+  align-items: center;
+  flex-wrap: wrap;
+}

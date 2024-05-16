@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import "./App.css";
 import SearchBar from "./components/SearchBar/SearchBar";
 import Loader from "./components/Loader/Loader";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
@@ -65,23 +64,25 @@ export default function App() {
   return (
     <>
       <SearchBar onSubmit={handleSubmit} />
-      {images.length > 0 && (
-        <ImageGallery
-          images={images}
-          onOpenModal={openModal}
-          setModalData={setModalData}
-        />
-      )}
-      {isLoading && <Loader />}
-      {error && <ErrorMessage />}
-      {showLoadMoreBtn && <LoadMoreBtn onClick={handleLoadMoreBtnClick} />}
-      {modalIsOpen && (
-        <ImageModal
-          onCloseModal={closeModal}
-          modalIsOpen={modalIsOpen}
-          modalData={modalData}
-        />
-      )}
+      <main>
+        {images.length > 0 && (
+          <ImageGallery
+            images={images}
+            onOpenModal={openModal}
+            setModalData={setModalData}
+          />
+        )}
+        {isLoading && <Loader />}
+        {error && <ErrorMessage />}
+        {showLoadMoreBtn && <LoadMoreBtn onClick={handleLoadMoreBtnClick} />}
+        {modalIsOpen && (
+          <ImageModal
+            onCloseModal={closeModal}
+            modalIsOpen={modalIsOpen}
+            modalData={modalData}
+          />
+        )}
+      </main>
     </>
   );
 }
