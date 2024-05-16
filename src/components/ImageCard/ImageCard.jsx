@@ -13,7 +13,7 @@ export default function ImageCard({
   }
 
   return (
-    <div className={css.card}>
+    <>
       <div>
         <p className={css.likes}>Likes: {likes}</p>
       </div>
@@ -25,6 +25,6 @@ export default function ImageCard({
           onClick={handleModalClick}
         />
       </div>
-    </div>
+    </>
   );
 }

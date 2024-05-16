@@ -5,7 +5,7 @@ export default function ImageGallery({ images, onOpenModal, setModalData }) {
   return (
     <ul className={css.list}>
       {images.map((image) => (
-        <li key={image.id}>
+        <li className={css.card} key={image.id}>
           <ImageCard
             imageData={image}
             onOpenModal={onOpenModal}
