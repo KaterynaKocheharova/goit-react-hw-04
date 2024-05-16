@@ -34,6 +34,7 @@ export default function App() {
       try {
         if (currentQuery !== "") {
           setIsLoading(true);
+          setError(false);
           const imageData = await getImages(currentQuery, currentPage);
           if (currentPage === 1) {
             setImages(imageData.results);
