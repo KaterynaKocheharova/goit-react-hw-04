@@ -7,13 +7,13 @@ const customStyles = {
     left: 0,
     right: 0,
     bottom: 0,
+    width: "100%",
+    height: "100%",
     backgroundColor: "var(--second-color)",
   },
 };
 
 ReactModal.setAppElement("#root");
-
-ReactModal.defaultStyles.overlay.backgroundColor = "black";
 
 export default function ImageModal({ onCloseModal, modalIsOpen, modalData }) {
   return (
