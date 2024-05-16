@@ -42,6 +42,7 @@ export default function SearchBar({ onSubmit }) {
                 padding: "0.5rem",
                 color: " #403234",
                 backgroundColor: "#e2c2b3",
+                width: "200px",
               },
             }}
           />
