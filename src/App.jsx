@@ -18,6 +18,12 @@ export default function App() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [modalData, setModalData] = useState({});
 
+  useEffect(() => {
+    if (!modalIsOpen) {
+      document.body.classList.remove("ReactModal__Body--open");
+    }
+  }, [modalIsOpen]);
+
   function openModal(modalData) {
     setIsOpen(true);
     setModalData(modalData);
