@@ -24,7 +24,7 @@ export default function ImageModal({ onCloseModal, modalIsOpen, modalData }) {
       shouldCloseOnOverlayClick={true}
       shouldCloseOnEsc={true}
       className={css.content}
-      bodyOpenClassName={"ReactModal__Body--open"}
+      // bodyOpenClassName={"ReactModal__Body--open"}
     >
       <img className={css.image} src={modalData.src} alt={modalData.alt} />
     </ReactModal>
