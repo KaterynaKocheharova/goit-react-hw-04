@@ -6,6 +6,7 @@ import ImageGallery from "./components/ImageGallery/ImageGallery";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMore";
 import ImageModal from "./components/ImageModal/ImageModal";
 import getImages from "./api";
+import Container from "./components/Container/Container";
 
 export default function App() {
   const [images, setImages] = useState([]);
@@ -65,23 +66,25 @@ export default function App() {
     <>
       <SearchBar onSubmit={handleSubmit} />
       <main>
-        {images.length > 0 && (
-          <ImageGallery
-            images={images}
-            onOpenModal={openModal}
-            setModalData={setModalData}
-          />
-        )}
-        {isLoading && <Loader />}
-        {error && <ErrorMessage />}
-        {showLoadMoreBtn && <LoadMoreBtn onClick={handleLoadMoreBtnClick} />}
-        {modalIsOpen && (
-          <ImageModal
-            onCloseModal={closeModal}
-            modalIsOpen={modalIsOpen}
-            modalData={modalData}
-          />
-        )}
+        <Container notHeader>
+          {images.length > 0 && (
+            <ImageGallery
+              images={images}
+              onOpenModal={openModal}
+              setModalData={setModalData}
+            />
+          )}
+          {isLoading && <Loader />}
+          {error && <ErrorMessage />}
+          {showLoadMoreBtn && <LoadMoreBtn onClick={handleLoadMoreBtnClick} />}
+          {modalIsOpen && (
+            <ImageModal
+              onCloseModal={closeModal}
+              modalIsOpen={modalIsOpen}
+              modalData={modalData}
+            />
+          )}
+        </Container>
       </main>
     </>
   );

@@ -18,9 +18,3 @@
 .image {
   object-fit: cover;
 }
-
-.likes {
-  color: var(--second-color);
-  font-size: 20px;
-  letter-spacing: 0.3em;
-}

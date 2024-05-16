@@ -10,7 +10,9 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
-    backgroundColor: "pink",
+    padding: "0",
+    height: "95%",
+    overflow: "hidden",
   },
   overlay: {
     position: "fixed",
@@ -18,7 +20,7 @@ const customStyles = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: "black",
+    backgroundColor: "var(--second-color)",
   },
 };
 
@@ -36,8 +38,7 @@ export default function ImageModal({ onCloseModal, modalIsOpen, modalData }) {
       shouldCloseOnOverlayClick={true}
       shouldCloseOnEsc={true}
     >
-      <button onClick={onCloseModal}>Close</button>
-      <img src={modalData.src} alt={modalData.alt} width="500" height="500" />
+      <img src={modalData.src} alt={modalData.alt} />
     </ReactModal>
   );
 }
