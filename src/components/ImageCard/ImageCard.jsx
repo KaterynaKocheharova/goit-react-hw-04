@@ -14,9 +14,7 @@ export default function ImageCard({
 
   return (
     <>
-      <div>
-        <p className={css.likes}>Likes: {likes}</p>
-      </div>
+      <p>Likes: {likes}</p>
       <div className={css["image-container"]}>
         <img
           className={css.image}

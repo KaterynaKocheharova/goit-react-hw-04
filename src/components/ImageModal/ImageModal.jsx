@@ -1,5 +1,6 @@
 import ReactModal from "react-modal";
 import css from "./ImageModal.module.css";
+
 const customStyles = {
   overlay: {
     position: "fixed",
