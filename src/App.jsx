@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Container from "./components/Container/Container";
 import SearchBar from "./components/SearchBar/SearchBar";
 import Loader from "./components/Loader/Loader";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
@@ -6,7 +7,6 @@ import ImageGallery from "./components/ImageGallery/ImageGallery";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMore";
 import ImageModal from "./components/ImageModal/ImageModal";
 import getImages from "./api";
-import Container from "./components/Container/Container";
 
 export default function App() {
   const [images, setImages] = useState([]);
@@ -74,11 +74,7 @@ export default function App() {
       <main>
         <Container notHeader>
           {images.length > 0 && (
-            <ImageGallery
-              images={images}
-              onOpenModal={openModal}
-              setModalData={setModalData}
-            />
+            <ImageGallery images={images} onOpenModal={openModal} />
           )}
           {isLoading && <Loader />}
           {error && <ErrorMessage />}
