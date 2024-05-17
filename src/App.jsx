@@ -18,8 +18,6 @@ export default function App() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [modalData, setModalData] = useState({});
 
-  // bodyOpenClassName when set as null doesn't add any class to document.body.
-
   useEffect(() => {
     if (!modalIsOpen) {
       document.body.classList.remove("ReactModal__Body--open");
