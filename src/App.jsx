@@ -112,6 +112,7 @@ import handleLoadMoreScroll from "./scroll";
 
 export default function App() {
   const [images, setImages] = useState([]);
+  const [isEmpty, setIsEmpty] = useState(false);
   const [currentQuery, setCurrentQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
@@ -143,7 +144,10 @@ export default function App() {
           setIsLoading(true);
           setError(false);
           const imageData = await getImages(currentQuery, currentPage);
-
+          if (!imageData.results.length) {
+            setIsEmpty(true);
+            return;
+          }
           if (currentPage === 1) {
             setTotalPages(imageData.total_pages);
           }
@@ -166,6 +170,7 @@ export default function App() {
   }, [images, currentPage]);
 
   function handleSubmit(query) {
+    setIsEmpty(false);
     setCurrentQuery(query);
     setCurrentPage(1);
     setImages([]);
@@ -180,6 +185,10 @@ export default function App() {
       <SearchBar onSubmit={handleSubmit} />
       <main>
         <Container notHeader>
+          {!images.length && !isLoading && !isEmpty && (
+            <p>Let's begin search!🤗</p>
+          )}
+          {isEmpty && <p>No images found! Sorry!</p>}
           {images.length > 0 && (
             <ImageGallery
               ref={galleryItemRef}
