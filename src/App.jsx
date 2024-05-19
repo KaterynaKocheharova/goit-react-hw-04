@@ -122,19 +122,15 @@ export default function App() {
   const [modalData, setModalData] = useState({});
   const galleryItemRef = useRef();
 
-  useEffect(() => {
-    if (!modalIsOpen) {
-      document.body.classList.remove("ReactModal__Body--open");
-    }
-  }, [modalIsOpen]);
-
   function openModal(modalData) {
     setIsOpen(true);
+    document.body.style.overflow = "hidden";
     setModalData(modalData);
   }
 
   function closeModal() {
     setIsOpen(false);
+    document.body.style.overflow = "visible";
   }
 
   useEffect(() => {
