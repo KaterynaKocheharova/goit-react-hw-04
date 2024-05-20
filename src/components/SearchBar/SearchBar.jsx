@@ -3,9 +3,10 @@ import Container from "../Container/Container";
 import css from "./SearchBar.module.css";
 
 const notify = () =>
-  toast.error("Fileds shouldn't be empty", {
-    position: "top-right",
+  toast.error(<div>Fields should not be empty</div>, {
     duration: 2000,
+    position: "top-right",
+    icon: "❗",
   });
 
 export default function SearchBar({ onSubmit }) {
@@ -38,11 +39,10 @@ export default function SearchBar({ onSubmit }) {
           </button>
           <Toaster
             toastOptions={{
+              className: css["my-custom-toast"],
               style: {
-                padding: "0.5rem",
                 color: " #403234",
                 backgroundColor: "#e2c2b3",
-                width: "200px",
               },
             }}
           />
