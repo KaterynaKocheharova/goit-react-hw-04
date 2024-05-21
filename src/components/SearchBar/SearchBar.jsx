@@ -2,12 +2,19 @@ import toast, { Toaster } from "react-hot-toast";
 import Container from "../Container/Container";
 import css from "./SearchBar.module.css";
 
-const notify = () =>
-  toast.error(<div>Fields should not be empty</div>, {
+let toastId;
+
+const notify = () => {
+  toastId = toast(<div onClick={closeToast}>Fields should not be empty</div>, {
     duration: 2000,
     position: "top-right",
     icon: "❗",
   });
+};
+
+function closeToast() {
+  toast.remove(toastId);
+}
 
 export default function SearchBar({ onSubmit }) {
   function handleSubmit(event) {
@@ -23,7 +30,7 @@ export default function SearchBar({ onSubmit }) {
   }
 
   return (
-    <header className={css.header}>
+    <header className={css.header} onClick={closeToast}>
       <Container>
         <form className={css.form} onSubmit={handleSubmit}>
           <input
@@ -39,7 +46,6 @@ export default function SearchBar({ onSubmit }) {
           </button>
           <Toaster
             toastOptions={{
-              className: css["my-custom-toast"],
               style: {
                 color: " #403234",
                 backgroundColor: "#e2c2b3",

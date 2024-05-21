@@ -56,7 +56,3 @@
   transition: background-color 250ms linear, border 250ms linear;
   color: var(--second-color);
 }
-
-.my-custom-toast {
-  color: white;
-}
